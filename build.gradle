@@ -88,10 +88,16 @@ publishing {
             } else {
                 url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
             }
-            credentials {
-                username = "$sonatypeUsername"
-                password = "$sonatypePassword"
+
+            if (file("gradle.properties").exists()) {
+                credentials {
+                    username = "$sonatypeUsername"
+                    password = "$sonatypePassword"
+                }
+            } else {
+                println("password does not exist")
             }
+
         }
     }
 }

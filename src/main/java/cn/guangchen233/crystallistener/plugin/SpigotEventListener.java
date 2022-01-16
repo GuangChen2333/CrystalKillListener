@@ -16,9 +16,6 @@ public class SpigotEventListener implements Listener {
     private Player killer;
     private EntityDamageByEntityEvent playerDamageEvent;
 
-    /**
-     * Reset temporary variable
-     */
     private void resetTempData() {
         this.crystal = null;
         this.deceased = null;
@@ -26,10 +23,7 @@ public class SpigotEventListener implements Listener {
         this.playerDamageEvent = null;
     }
 
-
-    /**
-     * 1st the crystal exploded
-     */
+    // 1st the crystal exploded
     @EventHandler
     public void onCrystalExplode(EntityDamageByEntityEvent event) {
         if (event.getEntityType() != EntityType.ENDER_CRYSTAL) {
@@ -49,9 +43,7 @@ public class SpigotEventListener implements Listener {
         this.killer = (Player) event.getDamager();
     }
 
-    /**
-     * 2nd the player takes damage and records
-     */
+    // 2nd the player takes damage and records
     @EventHandler
     public void onPlayerDamage(EntityDamageByEntityEvent event) {
         if (event.getEntityType() != EntityType.PLAYER) {
@@ -76,9 +68,7 @@ public class SpigotEventListener implements Listener {
         }
     }
 
-    /**
-     * 3rd the recorded player dies
-     */
+    // 3rd the recorded player dies
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         if (this.crystal == null || this.killer == null || deceased == null || playerDamageEvent == null) {
