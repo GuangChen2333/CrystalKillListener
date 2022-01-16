@@ -77,7 +77,7 @@ public class SpigotEventListener implements Listener {
 
         if (event.getEntity() == this.deceased) {
             PlayerDeathByPlayerWithCrystalEvent calledEvent = new PlayerDeathByPlayerWithCrystalEvent(
-                    this.killer, this.deceased, this.crystal, this.playerDamageEvent
+                    this.killer, this.deceased, this.crystal, this.playerDamageEvent, event
             );
             Bukkit.getScheduler().runTask(
                     CrystalListener.getInstance(),
