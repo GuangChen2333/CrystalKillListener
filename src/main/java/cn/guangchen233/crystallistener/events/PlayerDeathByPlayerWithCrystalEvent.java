@@ -78,4 +78,13 @@ public class PlayerDeathByPlayerWithCrystalEvent extends Event {
     public double getDamage() {
         return damageByEntityEvent.getDamage();
     }
+
+    /**
+     * This will check if the player's cause of death was suicide
+     *
+     * @return true if the player died by suicide, false otherwise
+     */
+    public boolean isSuicide() {
+        return killer == deceased;
+    }
 }

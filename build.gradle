@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 group 'cn.guangchen233'
-version '1.0.0'
+version '1.1-SNAPSHOT'
 
 repositories {
     maven {
@@ -31,4 +32,66 @@ repositories {
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    archiveClassifier.set("sources")
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    archiveClassifier.set("javadoc")
+}
+
+jar.dependsOn(sourcesJar)
+jar.dependsOn(javadocJar)
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'io.github.guangchen2333'
+            artifactId = "$rootProject.name"
+            version = "$version"
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            pom {
+                name = "Crystal Kill Listener"
+                description = "Add an event on Spigot API to listen to players kill a player with EnderCrystal"
+                url = "https://github.com/GuangChen2333/CrystalKillListener"
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        name = 'GuangChen2333'
+                        email = 'guangchen2333@outlook.com'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/GuangChen2333/CrystalKillListener'
+                    connection = 'scm:git:git://github.com/GuangChen2333/CrystalKillListener.git'
+                    developerConnection = 'scm:git:ssh://git@github.com:GuangChen2333/CrystalKillListener.git'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            if (project.version.endsWith('-SNAPSHOT')) {
+                url = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+            } else {
+                url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            }
+            credentials {
+                username = "$sonatypeUsername"
+                password = "$sonatypePassword"
+            }
+        }
+    }
 }
