@@ -1,10 +1,9 @@
 package cn.guangchen233.crystallistener.plugin;
 
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
-public class CrystalListener extends JavaPlugin implements Listener {
+public class CrystalListener extends JavaPlugin {
     private static CrystalListener instance;
 
     public static CrystalListener getInstance() {

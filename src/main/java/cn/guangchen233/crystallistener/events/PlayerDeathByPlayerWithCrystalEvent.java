@@ -6,6 +6,9 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.List;
 
 public class PlayerDeathByPlayerWithCrystalEvent extends Event {
     private static final HandlerList handlers = new HandlerList();
@@ -107,11 +110,78 @@ public class PlayerDeathByPlayerWithCrystalEvent extends Event {
     }
 
     /**
-     * Get raw event
+     * Get the death message that will appear to everyone on the server.
      *
-     * @return Return the PlayerDeathEvent
+     * @return message to appear to other players on the server.
      */
-    public PlayerDeathEvent getRawEvent() {
-        return playerDeathEvent;
+    public String getDeathMessage() {
+        return playerDeathEvent.getDeathMessage();
+    }
+
+    /**
+     * Get if the Player keeps inventory on death.
+     *
+     * @return true if the player keeps inventory on death
+     */
+    public boolean getKeepInventory() {
+        return playerDeathEvent.getKeepInventory();
+    }
+
+    /**
+     * Get if the Player should keep all EXP at respawn.
+     * This flag overrides other EXP settings
+     *
+     * @return true if Player should keep all pre-death exp
+     */
+    public boolean getKeepLevel() {
+        return playerDeathEvent.getKeepLevel();
+    }
+
+    /**
+     * Get how much EXP should be dropped from this death.
+     * This does not indicate how much EXP should be taken from the entity in question,
+     * merely how much should be created after its death.
+     *
+     * @return amount of EXP to drop.
+     */
+    public int getDroppedExp() {
+        return playerDeathEvent.getDroppedExp();
+    }
+
+    /**
+     * Get all the items which will drop when the entity dies
+     *
+     * @return items to drop when the entity dies
+     */
+    public List<ItemStack> getDrops() {
+        return playerDeathEvent.getDrops();
+    }
+
+    /**
+     * Get how much EXP the Player should have at respawn.
+     * This does not indicate how much EXP should be dropped, please see getDroppedExp() for that.
+     *
+     * @return new EXP of the respawned player
+     */
+    public int getNewExp() {
+        return playerDeathEvent.getNewExp();
+    }
+
+    /**
+     * Get the Total EXP the Player should have at respawn.
+     *
+     * @return new Total EXP of the respawned player
+     */
+    public int getNewTotalExp() {
+        return playerDeathEvent.getNewTotalExp();
+    }
+
+    /**
+     * Get the Level the Player should have at respawn.
+     *
+     * @return new Level of the respawned player
+     */
+    public int getNewLevel() {
+        return playerDeathEvent.getNewLevel();
     }
 }
