@@ -34,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'io.github.guangchen2333:CrystalKillListener:1.1-SNAPSHOT'
+    compileOnly 'io.github.guangchen2333:CrystalKillListener:{VERSION}'
 }
 ```
 
@@ -57,7 +57,7 @@ dependencies {
     <dependency>
         <groupId>io.github.guangchen2333</groupId>
         <artifactId>CrystalKillListener</artifactId>
-        <version>1.1-SNAPSHOT</version>
+        <version>{VERSION}</version>
         <scope>compile</scope>
     </dependency>
 </dependencies>
