@@ -1,0 +1,6 @@
+name: CrystalKillListener
+main: cn.guangchen233.crystallistener.plugin.CrystalListener
+version: 1.0.0
+author: GuangChen233
+website: https://github.com/GuangChen2333/CrystalKillListener
+api-version: 1.12

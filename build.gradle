@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.guangchen233'
+version '1.0.0'
+
+repositories {
+    maven {
+        url = 'https://repo.huaweicloud.com/repository/maven/'
+    }
+
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
+    }
+
+    maven {
+        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+
+    maven {
+        url = 'https://oss.sonatype.org/content/repositories/central'
+    }
+
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+}
