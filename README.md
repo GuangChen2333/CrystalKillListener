@@ -7,11 +7,12 @@ CrystalKillListener
 
 > Add an event on Spigot API to listen to players kill a player with EnderCrystal
 
-Supported Minecraft Versions: 1.12 
+Supported Minecraft Versions: 1.12
 
 (1.8 maybe, it can run on the 1.8, Other versions have not been tested)
 
 ## Usage
+
 1. Drag & Drop the JAR into the 'plugins' folder of your server.
 
 2. Include the following in your project's plugin.yml
@@ -44,6 +45,7 @@ dependencies {
 <summary><strong>Maven: </strong></summary>
 
 ```xml
+
 <repositories>
     <repository>
         <id>snposs</id>
@@ -53,6 +55,7 @@ dependencies {
 ```
 
 ```xml
+
 <dependencies>
     <dependency>
         <groupId>io.github.guangchen2333</groupId>
@@ -64,3 +67,23 @@ dependencies {
 ```
 
 </details>
+
+## Usage example
+
+```java
+import org.bukkit.event.Listener;
+import org.bukkit.event.EventHandler;
+import cn.guangchen233.crystallistener.events.PlayerDeathByPlayerWithCrystalEvent;
+
+public class Example implements Listener {
+    @EventHandler
+    public void onPlayerDeathWithCrystal(PlayerDeathByPlayerWithCrystalEvent event) {
+        System.out.println(event.toString());
+    }
+}
+
+```
+
+## Example of finished product
+
+- [jiyun233/CrystalKillTop](https://github.com/jiyun233/CrystalKillTop) : Spigot plugin can count crystal kill
