@@ -11,8 +11,6 @@ CrystalKillListener
 
 Supported Minecraft Versions: 1.12
 
-(1.8 maybe, it can run on the 1.8, Other versions have not been tested)
-
 ## Usage
 
 1. Drag & Drop the JAR into the 'plugins' folder of your server.
@@ -85,9 +83,3 @@ public class Example implements Listener {
 }
 
 ```
-
-## Example of finished product
-
-- [jiyun233/CrystalKillTop](https://github.com/jiyun233/CrystalKillTop) :
-Spigot plugin can count crystal kill - 
-[`MCBBS`](https://www.mcbbs.net/thread-1293843-1-1.html) 
