@@ -4,6 +4,8 @@ CrystalKillListener
 ![MAVEN](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fs01.oss.sonatype.org%2Fcontent%2Frepositories%2Fsnapshots%2Fio%2Fgithub%2Fguangchen2333%2FCrystalKillListener%2Fmaven-metadata.xml&style=flat)
 ![LICENSE](https://img.shields.io/github/license/GuangChen2333/CrystalKillListener?style=flat)
 ![STARS](https://img.shields.io/github/stars/GuangChen2333/CrystalKillListener)
+![DOWNLOAD](https://img.shields.io/github/downloads/GuangChen2333/CrystalKillListener/total)
+
 
 > Add an event on Spigot API to listen to players kill a player with EnderCrystal
 
@@ -86,4 +88,6 @@ public class Example implements Listener {
 
 ## Example of finished product
 
-- [jiyun233/CrystalKillTop](https://github.com/jiyun233/CrystalKillTop) : Spigot plugin can count crystal kill
+- [jiyun233/CrystalKillTop](https://github.com/jiyun233/CrystalKillTop) :
+Spigot plugin can count crystal kill - 
+[`MCBBS`](https://www.mcbbs.net/thread-1293843-1-1.html) 
