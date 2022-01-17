@@ -6,28 +6,28 @@ CrystalKillListener
 ![STARS](https://img.shields.io/github/stars/GuangChen2333/CrystalKillListener)
 ![DOWNLOAD](https://img.shields.io/github/downloads/GuangChen2333/CrystalKillListener/total)
 
-**English** | [简体中文](https://github.com/GuangChen2333/CrystalKillListener/blob/master/README_cn.md)
+[English](https://github.com/GuangChen2333/CrystalKillListener/blob/master/README.md) | **简体中文**
 
-> Add an event on Spigot API to listen to players kill a player with EnderCrystal
+> 在Spigot中添加一个玩家使用末影水晶击杀玩家的事件
 
-Supported Minecraft Versions: 1.12
+受支持的Minecraft版本: 1.12
 
-## Usage
+## 使用方法
 
-### For Users
+### 对于用户
 
-Drag & Drop the `JAR` into the `plugins` folder of your server.
+将 `JAR` 文件放入服务器的 `plugins` 文件夹中 
 
-### For Developers
+### 对于开发者
 
-1. Include the following in your project's `plugin.yml`
+1. 在工程的 `plugin.yml` 中包含下列内容
 
 ```yaml
 depend:
   - CrystalKillListener
 ```
 
-2. Add dependencies to your build tools.
+2. 在你的构建工具中添加依赖项
 
 <details open>
 <summary><strong>Gradle :</strong></summary>
@@ -73,7 +73,7 @@ dependencies {
 
 </details>
 
-## Usage example
+## 使用示例
 
 ```java
 import org.bukkit.event.Listener;
@@ -87,4 +87,3 @@ public class Example implements Listener {
     }
 }
 
-```
