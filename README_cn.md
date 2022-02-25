@@ -12,6 +12,8 @@ CrystalKillListener
 
 受支持的Minecraft版本: 1.12
 
+[**JavaDoc**](https://guangchen2333.github.io/CrystalKillListener/)
+
 ## 使用方法
 
 ### 对于用户
