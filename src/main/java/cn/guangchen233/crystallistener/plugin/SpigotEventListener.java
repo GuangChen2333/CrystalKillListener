@@ -80,7 +80,7 @@ public class SpigotEventListener implements Listener {
                     this.killer, this.deceased, this.crystal, this.playerDamageEvent, event
             );
             Bukkit.getScheduler().runTask(
-                    CrystalListener.getInstance(),
+                    Main.getInstance(),
                     () -> Bukkit.getPluginManager().callEvent(calledEvent)
             );
             this.resetTempData();

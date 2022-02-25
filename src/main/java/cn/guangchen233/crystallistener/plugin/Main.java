@@ -3,10 +3,10 @@ package cn.guangchen233.crystallistener.plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
-public class CrystalListener extends JavaPlugin {
-    private static CrystalListener instance;
+public class Main extends JavaPlugin {
+    private static Main instance;
 
-    public static CrystalListener getInstance() {
+    public static Main getInstance() {
         return instance;
     }
 

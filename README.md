@@ -10,7 +10,9 @@ CrystalKillListener
 
 > Add an event on Spigot API to listen to players kill a player with EnderCrystal
 
-Supported Minecraft Versions: 1.12
+Supported Minecraft Version: 1.12
+
+[**JavaDoc**](https://guangchen2333.github.io/CrystalKillListener/)
 
 ## Usage
 

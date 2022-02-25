@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.List;
 
 public class PlayerDeathByPlayerWithCrystalEvent extends Event {
-    private static final HandlerList handlers = new HandlerList();
+    private static final HandlerList HANDLERS = new HandlerList();
     private final Player killer;
     private final Player deceased;
     private final Entity crystal;
@@ -20,7 +20,7 @@ public class PlayerDeathByPlayerWithCrystalEvent extends Event {
 
     @Override
     public HandlerList getHandlers() {
-        return handlers;
+        return HANDLERS;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class PlayerDeathByPlayerWithCrystalEvent extends Event {
     }
 
     public static HandlerList getHandlerList() {
-        return handlers;
+        return HANDLERS;
     }
 
     public PlayerDeathByPlayerWithCrystalEvent(
