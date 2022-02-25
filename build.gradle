@@ -44,8 +44,19 @@ task javadocJar(type: Jar) {
     archiveClassifier.set("javadoc")
 }
 
+task javadocDir(type: Copy) {
+    from javadoc
+    into('docs/')
+}
+
+task cleanJavadocDir(type: Delete) {
+    delete "docs/"
+}
+
 jar.dependsOn(sourcesJar)
 jar.dependsOn(javadocJar)
+jar.dependsOn(javadocDir)
+clean.dependsOn(cleanJavadocDir)
 
 publishing {
     publications {
