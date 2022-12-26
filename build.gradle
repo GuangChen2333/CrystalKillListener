@@ -26,8 +26,6 @@ repositories {
     maven {
         url = 'https://oss.sonatype.org/content/repositories/central'
     }
-
-    mavenCentral()
 }
 
 dependencies {
@@ -58,10 +56,15 @@ task javadocDir(type: Copy) {
     into('docs/')
 }
 
-jar.dependsOn(sourcesJar)
-jar.dependsOn(javadocJar)
-jar.dependsOn(javadocDir)
-clean.dependsOn(cleanJavadocDir)
+jar.dependsOn([
+        sourcesJar,
+        javadocJar,
+        javadocDir
+])
+
+clean.dependsOn(
+        cleanJavadocDir
+)
 
 publishing {
     publications {
@@ -111,7 +114,7 @@ publishing {
                     password = "$sonatypePassword"
                 }
             } else {
-                println("password does not exist")
+                println("[Info] the password file does not exist")
             }
 
         }
