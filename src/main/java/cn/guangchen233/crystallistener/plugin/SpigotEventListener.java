@@ -26,10 +26,12 @@ public class SpigotEventListener implements Listener {
     // 1st the crystal exploded
     @EventHandler
     public void onCrystalExplode(EntityDamageByEntityEvent event) {
+        // Crystal
         if (event.getEntityType() != EntityType.ENDER_CRYSTAL) {
             return;
         }
 
+        // Make sure it is Player Damage
         if (event.getDamager() == null) {
             return;
         }
@@ -46,44 +48,53 @@ public class SpigotEventListener implements Listener {
     // 2nd the player takes damage and records
     @EventHandler
     public void onPlayerDamage(EntityDamageByEntityEvent event) {
+        // Player
         if (event.getEntityType() != EntityType.PLAYER) {
             return;
         }
 
+        // Make sure it is the crystal kill
         if (this.crystal == null) {
             this.resetTempData();
             return;
         }
 
+        // Anti Nature Hurt
         if (event.getDamager() == null) {
             this.resetTempData();
             return;
         }
 
-        if (event.getDamager() == this.crystal) {
-            this.deceased = (Player) event.getEntity();
-            this.playerDamageEvent = event;
-        } else {
+        // Make sure it is the same crystal
+        if (event.getDamager() != this.crystal) {
             this.resetTempData();
+            return;
         }
+
+        this.deceased = (Player) event.getEntity();
+        this.playerDamageEvent = event;
     }
 
     // 3rd the recorded player dies
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
+        // Make sure it is the crystal kill by someone
         if (this.crystal == null || this.killer == null || deceased == null || playerDamageEvent == null) {
             return;
         }
 
-        if (event.getEntity() == this.deceased) {
-            PlayerDeathByPlayerWithCrystalEvent calledEvent = new PlayerDeathByPlayerWithCrystalEvent(
-                    this.killer, this.deceased, this.crystal, this.playerDamageEvent, event
-            );
-            Bukkit.getScheduler().runTask(
-                    Main.getInstance(),
-                    () -> Bukkit.getPluginManager().callEvent(calledEvent)
-            );
-            this.resetTempData();
+        // Make sure it is the same player
+        if (event.getEntity() != this.deceased) {
+            return;
         }
+
+        PlayerDeathByPlayerWithCrystalEvent calledEvent = new PlayerDeathByPlayerWithCrystalEvent(
+                this.killer, this.deceased, this.crystal, this.playerDamageEvent, event
+        );
+        Bukkit.getScheduler().runTask(
+                Main.getInstance(),
+                () -> Bukkit.getPluginManager().callEvent(calledEvent)
+        );
+        this.resetTempData();
     }
 }
