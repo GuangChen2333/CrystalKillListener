@@ -13,6 +13,8 @@ CrystalKillListener
 Supported Minecraft Version: 1.12
 
 [**JavaDoc**](https://guangchen2333.github.io/CrystalKillListener/)
+->
+[**PlayerDeathByPlayerWithCrystalEvent**](https://guangchen2333.github.io/CrystalKillListener/cn/guangchen233/crystallistener/events/PlayerDeathByPlayerWithCrystalEvent.html)
 
 ## Usage
 
