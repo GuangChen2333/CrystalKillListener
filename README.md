@@ -94,7 +94,7 @@ public class Example implements Listener {
 ```
 
 ## TO-DO
-[ ] event.setDeathMessage() | v1.4
+- [ ] event.setDeathMessage() | v1.4
 
 ## About
 If you like this project, please give this project a star. 
