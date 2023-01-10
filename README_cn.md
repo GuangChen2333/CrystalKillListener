@@ -88,4 +88,12 @@ public class Example implements Listener {
         System.out.println(event.toString());
     }
 }
+```
 
+## 更新计划
+- [ ] event.setDeathMessage() | v1.4
+
+## 关于
+如果你喜欢这个项目，请给本项目点个Star。
+
+如果你有任何关于本项目的想法或建议，欢迎提交Pull Requests或Issue，我会认真的审核他们。
