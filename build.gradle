@@ -1,10 +1,12 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     id 'java'
-    id 'maven-publish'
+    id "com.vanniktech.maven.publish" version "0.23.1"
 }
 
 group 'cn.guangchen233'
-version '1.3.1-SNAPSHOT'
+version '2.0.0-SNAPSHOT'
 
 repositories {
     maven {
@@ -32,91 +34,94 @@ dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
 }
 
+// Config
+
 javadoc {
     options.encoding "UTF-8"
 }
 
-task sourcesJar(type: Jar) {
-    from sourceSets.main.allJava
+// Tasks
+
+tasks.register("PackSourcesJar", Jar) {
+    from(sourceSets.main.allJava)
     archiveClassifier.set("sources")
 }
 
-task javadocJar(type: Jar) {
-    from javadoc
+tasks.register("PackJavadocJar", Jar) {
+    from(javadoc)
     archiveClassifier.set("javadoc")
 }
 
-task cleanJavadocDir(type: Delete) {
-    delete "docs/"
+tasks.register("CleanJavadocDir", Delete) {
+    delete("docs/")
 }
 
-task javadocDir(type: Copy) {
-    dependsOn cleanJavadocDir
-    from javadoc
-    into('docs/')
+tasks.register("GenJavadocDir", Copy) {
+    dependsOn(tasks.named("CleanJavadocDir"))
+
+    from(javadoc)
+    into("docs/")
 }
 
-jar.dependsOn([
-        sourcesJar,
-        javadocJar,
-        javadocDir
-])
+// Tasks dependencies
+tasks.named("build") {
+    dependsOn(tasks.named("GenJavadocDir"))
+}
 
-clean.dependsOn(
-        cleanJavadocDir
-)
+tasks.named("clean", Delete) {
+    dependsOn(tasks.named("CleanJavadocDir"))
+}
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'io.github.guangchen2333'
-            artifactId = "$rootProject.name"
-            version = "$version"
-            from components.java
-            artifact sourcesJar
-            artifact javadocJar
-            pom {
-                name = "Crystal Kill Listener"
-                description = "Add an event on Spigot API to listen to players kill a player with EnderCrystal"
-                url = "https://github.com/GuangChen2333/CrystalKillListener"
-                licenses {
-                    license {
-                        name = 'MIT License'
-                        url = 'https://opensource.org/licenses/MIT'
-                    }
-                }
-                developers {
-                    developer {
-                        name = 'GuangChen2333'
-                        email = 'guangchen2333@outlook.com'
-                    }
-                }
-                scm {
-                    url = 'https://github.com/GuangChen2333/CrystalKillListener'
-                    connection = 'scm:git:git://github.com/GuangChen2333/CrystalKillListener.git'
-                    developerConnection = 'scm:git:ssh://git@github.com:GuangChen2333/CrystalKillListener.git'
+tasks.named("jar", Jar) {
+    dependsOn([
+            tasks.named("PackJavadocJar"),
+            tasks.named("PackSourcesJar")
+    ])
+}
+
+// Publish
+
+afterEvaluate {
+    mavenPublishing {
+        coordinates(
+                "io.github.guangchen2333",
+                "$rootProject.name",
+                "$version"
+        )
+
+        // https://s01.oss.sonatype.org
+        publishToMavenCentral(SonatypeHost.S01)
+
+        signAllPublications()
+
+        pom {
+            name = "Crystal Kill Listener"
+            description = "Add an event on Spigot API to listen to players kill a player with EnderCrystal"
+            url = "https://github.com/GuangChen2333/CrystalKillListener"
+            inceptionYear = "2022"
+
+            licenses {
+                license {
+                    name = "MIT License"
+                    url = 'https://opensource.org/licenses/MIT'
+                    distribution = "https://raw.githubusercontent.com/GuangChen2333/CrystalKillListener/dev/LICENSE"
                 }
             }
-        }
-    }
 
-    repositories {
-        maven {
-            if (project.version.endsWith('-SNAPSHOT')) {
-                url = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-            } else {
-                url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-            }
-
-            if (file("gradle.properties").exists()) {
-                credentials {
-                    username = "$sonatypeUsername"
-                    password = "$sonatypePassword"
+            developers {
+                developer {
+                    id = "GuangChen2333"
+                    name = "Guang_Chen_"
+                    email = "guangchenworks@outlook.com"
+                    url = "https://github.com/GuangChen2333/"
                 }
-            } else {
-                println("[Info] the password file does not exist")
             }
 
+            scm {
+                url = 'https://github.com/GuangChen2333/CrystalKillListener'
+                connection = 'scm:git:git://github.com/GuangChen2333/CrystalKillListener.git'
+                developerConnection = 'scm:git:ssh://git@github.com:GuangChen2333/CrystalKillListener.git'
+            }
         }
     }
 }
