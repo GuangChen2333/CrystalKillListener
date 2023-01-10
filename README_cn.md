@@ -13,12 +13,16 @@ CrystalKillListener
 受支持的Minecraft版本: 1.12
 
 [**JavaDoc**](https://guangchen2333.github.io/CrystalKillListener/)
+->
+[**PlayerDeathByPlayerWithCrystalEvent**](
+https://guangchen2333.github.io/CrystalKillListener/cn/guangchen233/crystallistener/events/PlayerDeathByPlayerWithCrystalEvent.html
+)
 
 ## 使用方法
 
 ### 对于用户
 
-将 `JAR` 文件放入服务器的 `plugins` 文件夹中 
+将 `JAR` 文件放入服务器的 `plugins` 文件夹中
 
 ### 对于开发者
 
@@ -55,7 +59,7 @@ dependencies {
 
 <repositories>
     <repository>
-        <id>snposs</id>
+        <id>OSSRH</id>
         <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
     </repository>
 </repositories>
@@ -91,9 +95,11 @@ public class Example implements Listener {
 ```
 
 ## 更新计划
-- [ ] event.setDeathMessage() | v1.4
+
+- [ ] event.setDeathMessage() | v2.0
 
 ## 关于
+
 如果你喜欢这个项目，请给本项目点个Star。
 
-如果你有任何关于本项目的想法或建议，欢迎提交Pull Requests或Issue，我会认真的审核他们。
+如果你有任何关于本项目的想法或建议，欢迎提交Pull Requests或Issue，我会认真的审核您的提交。

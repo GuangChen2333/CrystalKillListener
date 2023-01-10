@@ -14,7 +14,9 @@ Supported Minecraft Version: 1.12
 
 [**JavaDoc**](https://guangchen2333.github.io/CrystalKillListener/)
 ->
-[**PlayerDeathByPlayerWithCrystalEvent**](https://guangchen2333.github.io/CrystalKillListener/cn/guangchen233/crystallistener/events/PlayerDeathByPlayerWithCrystalEvent.html)
+[**PlayerDeathByPlayerWithCrystalEvent**](
+https://guangchen2333.github.io/CrystalKillListener/cn/guangchen233/crystallistener/events/PlayerDeathByPlayerWithCrystalEvent.html
+)
 
 ## Usage
 
@@ -57,7 +59,7 @@ dependencies {
 
 <repositories>
     <repository>
-        <id>snposs</id>
+        <id>OSSRH</id>
         <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
     </repository>
 </repositories>
@@ -90,13 +92,15 @@ public class Example implements Listener {
         System.out.println(event.toString());
     }
 }
-
 ```
 
 ## TO-DO
-- [ ] event.setDeathMessage() | v1.4
+
+- [ ] event.setDeathMessage() | v2.0
 
 ## About
-If you like this project, please give this project a star. 
 
-If you have any ideas or suggestions about this project, feel free to submit Pull Requests or Issue and I will review them carefully.
+If you like this project, please give this project a star.
+
+If you have any ideas or suggestions about this project, feel free to submit Pull Requests or Issue and I will review
+them carefully.
