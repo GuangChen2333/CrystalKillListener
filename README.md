@@ -92,3 +92,10 @@ public class Example implements Listener {
 }
 
 ```
+
+## TO-DO
+[ ] event.setDeathMessage() | v1.4
+
+## About
+If you like this project, please give this project a star. 
+If you have any ideas or suggestions about this project, feel free to submit Pull Requests or Issue and I will review them carefully.
