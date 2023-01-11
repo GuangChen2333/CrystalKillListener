@@ -77,24 +77,23 @@ public class SpigotEventListener implements Listener {
 
     // 3rd the recorded player dies
     @EventHandler
-    public void onPlayerDeath(PlayerDeathEvent event) {
+    public void onPlayerDeath(PlayerDeathEvent playerDeathEvent) {
         // Make sure it is the crystal kill by someone
         if (this.crystal == null || this.killer == null || deceased == null || playerDamageEvent == null) {
             return;
         }
 
         // Make sure it is the same player
-        if (event.getEntity() != this.deceased) {
+        if (playerDeathEvent.getEntity() != this.deceased) {
             return;
         }
 
         PlayerDeathByPlayerWithCrystalEvent calledEvent = new PlayerDeathByPlayerWithCrystalEvent(
-                this.killer, this.deceased, this.crystal, this.playerDamageEvent, event
+                this.killer, this.deceased, this.crystal, this.playerDamageEvent, playerDeathEvent
         );
-        Bukkit.getScheduler().runTask(
-                Main.getInstance(),
-                () -> Bukkit.getPluginManager().callEvent(calledEvent)
-        );
+
+        Bukkit.getPluginManager().callEvent(calledEvent);
+
         this.resetTempData();
     }
 }
