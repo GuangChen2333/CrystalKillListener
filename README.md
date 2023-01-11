@@ -94,9 +94,17 @@ public class Example implements Listener {
 }
 ```
 
-## TO-DO
+## TO-DO | Version 2.0
 
-- [ ] event.setDeathMessage() | v2.0
+- [ ] build(script): new publish plugin
+
+- [ ] build(script): standardize build script
+
+- [ ] test(plugin-test): add test sub project in gradle
+
+- [ ] refactor(event): refactor the event functions
+
+- [ ] feat(event): add deathMessage method in event
 
 ## About
 
