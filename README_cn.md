@@ -104,7 +104,7 @@ public class Example implements Listener {
 
 - [ ] refactor(event): 重构事件方法
 
-- [ ] feat(event): add deathMessage method in event
+- [ ] feat(event): 添加死亡信息相关方法
 
 ## 关于
 
