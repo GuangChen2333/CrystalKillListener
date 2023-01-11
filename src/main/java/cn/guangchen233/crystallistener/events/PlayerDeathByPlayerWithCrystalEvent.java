@@ -6,9 +6,6 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.inventory.ItemStack;
-
-import java.util.List;
 
 public class PlayerDeathByPlayerWithCrystalEvent extends Event {
     private static final HandlerList HANDLERS = new HandlerList();
@@ -34,6 +31,7 @@ public class PlayerDeathByPlayerWithCrystalEvent extends Event {
     }
 
     // Base
+    @SuppressWarnings("unused")
     public static HandlerList getHandlerList() {
         return HANDLERS;
     }
