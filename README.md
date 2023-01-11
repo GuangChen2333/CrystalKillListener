@@ -103,7 +103,7 @@ public class Example implements Listener {
 
 - [x] test(plugin-test): add test subproject in gradle
 
-- [ ] refactor(event): refactor the event functions
+- [x] refactor(event): refactor the event functions
 
 - [x] feat(event): add deathMessage method in event
 

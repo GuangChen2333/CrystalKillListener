@@ -103,7 +103,7 @@ public class Example implements Listener {
 
 - [x] test(plugin-test): 增加测试插件项目
 
-- [ ] refactor(event): 重构事件方法
+- [x] refactor(event): 重构事件方法
 
 - [x] feat(event): 添加死亡信息相关方法
 
