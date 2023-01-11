@@ -100,7 +100,7 @@ public class Example implements Listener {
 
 - [ ] build(script): standardize build script
 
-- [ ] test(plugin-test): add test sub project in gradle
+- [ ] test(plugin-test): add test subproject in gradle
 
 - [ ] refactor(event): refactor the event functions
 
