@@ -94,9 +94,17 @@ public class Example implements Listener {
 }
 ```
 
-## 更新计划
+## 更新计划 | 2.0 版本
 
-- [ ] event.setDeathMessage() | v2.0
+- [ ] build(script): 更换新的发布插件
+
+- [ ] build(script): 标准化构建脚本
+
+- [ ] test(plugin-test): 增加测试插件项目
+
+- [ ] refactor(event): 重构事件方法
+
+- [ ] feat(event): add deathMessage method in event
 
 ## 关于
 
