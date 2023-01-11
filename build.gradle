@@ -40,24 +40,29 @@ javadoc {
     options.encoding "UTF-8"
 }
 
+java {
+    sourceCompatibility("1.8")
+    targetCompatibility("1.8")
+}
+
 // Tasks
 
-tasks.register("PackSourcesJar", Jar) {
+tasks.register("packSourcesJar", Jar) {
     from(sourceSets.main.allJava)
     archiveClassifier.set("sources")
 }
 
-tasks.register("PackJavadocJar", Jar) {
+tasks.register("packJavadocJar", Jar) {
     from(javadoc)
     archiveClassifier.set("javadoc")
 }
 
-tasks.register("CleanJavadocDir", Delete) {
+tasks.register("cleanJavadocDir", Delete) {
     delete("docs/")
 }
 
-tasks.register("GenJavadocDir", Copy) {
-    dependsOn(tasks.named("CleanJavadocDir"))
+tasks.register("genJavadocDir", Copy) {
+    dependsOn(tasks.named("cleanJavadocDir"))
 
     from(javadoc)
     into("docs/")
@@ -65,17 +70,17 @@ tasks.register("GenJavadocDir", Copy) {
 
 // Tasks dependencies
 tasks.named("build") {
-    dependsOn(tasks.named("GenJavadocDir"))
+    dependsOn(tasks.named("genJavadocDir"))
 }
 
 tasks.named("clean", Delete) {
-    dependsOn(tasks.named("CleanJavadocDir"))
+    dependsOn(tasks.named("cleanJavadocDir"))
 }
 
 tasks.named("jar", Jar) {
     dependsOn([
-            tasks.named("PackJavadocJar"),
-            tasks.named("PackSourcesJar")
+            tasks.named("packJavadocJar"),
+            tasks.named("packSourcesJar"),
     ])
 }
 
