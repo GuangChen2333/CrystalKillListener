@@ -96,15 +96,15 @@ public class Example implements Listener {
 
 ## 更新计划 | 2.0 版本
 
-- [ ] build(script): 更换新的发布插件
+- [x] build(script): 更换新的发布插件
 
-- [ ] build(script): 标准化构建脚本
+- [x] build(script): 标准化构建脚本
 
-- [ ] test(plugin-test): 增加测试插件项目
+- [x] test(plugin-test): 增加测试插件项目
 
 - [ ] refactor(event): 重构事件方法
 
-- [ ] feat(event): 添加死亡信息相关方法
+- [x] feat(event): 添加死亡信息相关方法
 
 ## 关于
 

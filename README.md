@@ -96,15 +96,15 @@ public class Example implements Listener {
 
 ## TO-DO | Version 2.0
 
-- [ ] build(script): new publish plugin
+- [x] build(script): new publish plugin
 
-- [ ] build(script): standardize build script
+- [x] build(script): standardize build script
 
-- [ ] test(plugin-test): add test subproject in gradle
+- [x] test(plugin-test): add test subproject in gradle
 
 - [ ] refactor(event): refactor the event functions
 
-- [ ] feat(event): add deathMessage method in event
+- [x] feat(event): add deathMessage method in event
 
 ## About
 
