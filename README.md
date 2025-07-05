@@ -1,3 +1,6 @@
+> [!CAUTION]
+> After July 5, 2025, this project will be archived and no longer maintained.
+
 CrystalKillListener
 ---
 ![Build](https://github.com/GuangChen2333/CrystalKillListener/actions/workflows/build.yml/badge.svg)
